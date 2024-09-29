@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorar Séries - Portal de Séries</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="bg-light border-bottom">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.png" alt="Logo do Portal de Séries" width="30" height="30"
+            class="d-inline-block align-top" />
+          Portal de Séries
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="explorer.html">Explorar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="serie.html">Detalhes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contato">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Fim do Cabeçalho -->
+
+  <!-- Conteúdo Principal -->
+  <main class="container mt-4">
+    <!-- Barra de Busca -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar séries..." aria-label="Buscar séries" />
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fim da Barra de Busca -->
+
+    <div class="row">
+      <!-- Caixa de Filtros -->
+      <aside class="col-md-3 mb-4">
+        <div class="card border-orange rounded sticky-top">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Filtros</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="genreSelect">Gênero</label>
+                <select class="form-control" id="genreSelect">
+                  <option>Todos os Gêneros</option>
+                  <option>Ação</option>
+                  <option>Comédia</option>
+                  <option>Drama</option>
+                  <option>Fantasia</option>
+                  <option>Ficção Científica</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="yearSelect">Ano</label>
+                <select class="form-control" id="yearSelect">
+                  <option>Todos os Anos</option>
+                  <option>2024</option>
+                  <option>2023</option>
+                  <option>2022</option>
+                  <option>2021</option>
+                  <option>2020</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ratingSelect">Classificação</label>
+                <select class="form-control" id="ratingSelect">
+                  <option>Todas as Classificações</option>
+                  <option>5 estrelas</option>
+                  <option>4 estrelas</option>
+                  <option>3 estrelas</option>
+                  <option>2 estrelas</option>
+                  <option>1 estrela</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ageRatingSelect">Classificação Etária</label>
+                <select class="form-control" id="ageRatingSelect">
+                  <option>Todas as Classificações</option>
+                  <option>Livre</option>
+                  <option>10+</option>
+                  <option>12+</option>
+                  <option>14+</option>
+                  <option>16+</option>
+                  <option>18+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="keywordsInput">Palavras-chave</label>
+                <input type="text" class="form-control" id="keywordsInput" placeholder="Digite palavras-chave" />
+              </div>
+              <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+            </form>
+          </div>
+        </div>
+      </aside>
+      <!-- Fim da Caixa de Filtros -->
+
+      <!-- Resultados da Busca -->
+      <section class="col-md-9">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/93241/backdrop.jpg" class="card-img-top rounded-top" alt="Uzumaki" />
+              <div class="card-body">
+                <h5 class="card-title">Uzumaki</h5>
+                <p class="card-text">
+                  Na tentativa de escapar da maldição das espirais, Kirie, uma
+                  estudante do ensino médio, decide deixar sua cidade natal.
+                  Será que ela conseguirá?
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/194764/backdrop.jpg" class="card-img-top rounded-top" alt="Pinguim" />
+              <div class="card-body">
+                <h5 class="card-title">Pinguim</h5>
+                <p class="card-text">
+                  Após a queda dos Carmines, Oswald “Oz” Cobb está pronto para
+                  assumir o controle de Gotham e dar à sua mãe a vida que ele
+                  sempre lhe prometeu. Mas primeiro, ele terá de enfrentar
+                  inimigos novos e antigos, além do seu tão odiado apelido – O
+                  Pinguim – que não tornará o caminho deste gangster tão
+                  fácil.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/156933/backdrop.jpg" class="card-img-top rounded-top"
+                alt="Acima de Qualquer Suspeita" />
+              <div class="card-body">
+                <h5 class="card-title">Acima de Qualquer Suspeita</h5>
+                <p class="card-text">
+                  Um assassinato hediondo deixa o escritório da Promotoria de
+                  Justiça de Chicago de cabeça para baixo quando um dos
+                  funcionários é suspeito do crime, o que deixa o acusado
+                  lutando para manter sua família unida.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/85077/backdrop.jpg" class="card-img-top rounded-top"
+                alt="The Chosen: Os Escolhidos" />
+              <div class="card-body">
+                <h5 class="card-title">The Chosen: Os Escolhidos</h5>
+                <p class="card-text">
+                  Aprofundando-se nas histórias de fundo e no contexto das
+                  pessoas e eventos dos evangelhos, a Primeira Temporada do
+                  projeto de mídia de maior financiamento coletivo pelo
+                  público de todos os tempos apresenta pessoas como Simão
+                  Pedro, Nicodemos, Maria Madalena, Mateus e, claro, Jesus de
+                  uma forma nunca antes vista em filme.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/126308/backdrop.jpg" class="card-img-top rounded-top"
+                alt="Xógum: A Gloriosa Saga do Japão" />
+              <div class="card-body">
+                <h5 class="card-title">Xógum: A Gloriosa Saga do Japão</h5>
+                <p class="card-text">
+                  Ambientada no Japão de 1600, o Senhor Yoshii Toranaga está
+                  lutando pela sua vida à medida que seus inimigos no Conselho
+                  dos Regentes se unem contra ele, quando um navio europeu
+                  misterioso é encontrado encalhado em um vilarejo de
+                  pescadores próximo.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/236235/backdrop.jpg" class="card-img-top rounded-top" alt="Magnatas do Crime" />
+              <div class="card-body">
+                <h5 class="card-title">Magnatas do Crime</h5>
+                <p class="card-text">
+                  O aristocrata Eddie herdou a propriedade da família, só para
+                  descobrir que há um império da maconha rolando lá nas
+                  terras. E os donos não vão arredar pé.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/1398/backdrop.jpg" class="card-img-top rounded-top" alt="Família Soprano" />
+              <div class="card-body">
+                <h5 class="card-title">Família Soprano</h5>
+                <p class="card-text">
+                  Chefe da máfia e pai de família, Tony Soprano começa a ter
+                  ataques de pânico e decide procurar a ajuda de uma
+                  profissional, Dra. Jennifer Melfi. Ele discute sua intimidade
+                  e a vida no crime, revelando o desconforto da mulher, Carmela
+                  Soprano, com as suas atividades profissionais. Enquanto tenta
+                  proteger os filhos, Meadow e Anthony Junior, o mafioso irá
+                  enfrentar uma investigação federal e a possível traição de um
+                  membro da família.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/1396/backdrop.jpg" class="card-img-top rounded-top"
+                alt="Breaking Bad: A Química do Mal" />
+              <div class="card-body">
+                <h5 class="card-title">Breaking Bad: A Química do Mal</h5>
+                <p class="card-text">
+                  Ao saber que tem câncer, um professor passa a fabricar
+                  metanfetamina pelo futuro da família, mudando o destino de
+                  todos.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/6357/backdrop.jpg" class="card-img-top rounded-top" alt="Além da Imaginação" />
+              <div class="card-body">
+                <h5 class="card-title">Além da Imaginação</h5>
+                <p class="card-text">
+                  A clássica série de TV Além da Imaginação (The Twilight Zone),
+                  que explora o misterioso, o desconhecido e o inesquecível,
+                  levará você para os mais profundos reinos da imaginação. Em
+                  suas lendárias histórias, você conferirá o melhor da ficção
+                  científica e do terror de todos os tempos, criado e dirigido
+                  por Rod Serling.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/1060/backdrop.jpg" class="card-img-top rounded-top" alt="Jeeves and Wooster" />
+              <div class="card-body">
+                <h5 class="card-title">Jeeves and Wooster</h5>
+                <p class="card-text">
+                  Jeeves & Wooster é uma série britânica de comédia-drama,
+                  adaptada das histórias de P.G. Wodehouse. Exibida de 1990 a
+                  1993, a série apresenta Hugh Laurie como o despreocupado
+                  aristocrata Bertie Wooster e Stephen Fry como seu talentoso
+                  mordomo, Jeeves, que sempre o salva de desventuras sociais. As
+                  histórias se passam nos anos 1930 no Reino Unido e nos EUA.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/62699/backdrop.jpg" class="card-img-top rounded-top" alt="O Jovem Papa" />
+              <div class="card-body">
+                <h5 class="card-title">O Jovem Papa</h5>
+                <p class="card-text">
+                  Lenny Belardo (Jude Law) se torna o primeiro pontífice
+                  americano a ser escolhido para liderar a Igreja Católica.
+                  Jovem e charmoso, a eleição do Papa Pio XIII pode parecer o
+                  resultado de uma simples estratégia de mídia, mas as
+                  aparências podem enganar no misterioso Vaticano.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/95396/backdrop.jpg" class="card-img-top rounded-top" alt="Ruptura" />
+              <div class="card-body">
+                <h5 class="card-title">Ruptura</h5>
+                <p class="card-text">
+                  Mark lidera uma equipe de funcionários de escritório cujas
+                  memórias foram divididas cirurgicamente entre a vida no
+                  trabalho e a vida pessoal. Quando um colega de trabalho
+                  misterioso aparece fora do escritório, ele começa uma
+                  jornada para descobrir a verdade sobre seu trabalho.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver Detalhes</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/84773/backdrop.jpg" class="card-img-top rounded-top" alt="O Senhor dos Anéis: Os
+                  Anéis de Poder" />
+              <div class="card-body">
+                <h5 class="card-title">O Senhor dos Anéis: Os Anéis de
+                  Poder</h5>
+                <p class="card-text">
+                  Tendo início em uma época de relativa paz, a série acompanha
+                  um grupo de personagens que enfrenta o ressurgimento do mal
+                  na Terra-média. Das profundezas escuras das Montanhas de
+                  Névoa, das majestosas florestas de Lindon, do belíssimo
+                  reino da ilha de Númenor, até os confins do mapa, esses
+                  reinos e personagens criarão legados que permanecerão vivos
+                  muito além de suas partidas.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver
+                  Detalhes</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/2288/backdrop.jpg" class="card-img-top
+                  rounded-top" alt="Prison Break: Em Busca da Verdade" />
+              <div class="card-body">
+                <h5 class="card-title">Prison Break: Em Busca da
+                  Verdade</h5>
+                <p class="card-text">
+                  Lincoln Burrows é condenado injustamente à pena de morte. Só
+                  lhe resta confiar no irmão Michael Scofield, que executa um
+                  plano de fuga e se vê no meio de uma perigosa conspiração.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver
+                  Detalhes</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/456/backdrop.jpg" class="card-img-top
+                  rounded-top" alt="Os Simpsons" />
+              <div class="card-body">
+                <h5 class="card-title">Os Simpsons</h5>
+                <p class="card-text">
+                  Uma animação sobre uma típica família dos Estados Unidos.
+                  Homer é o pai de família nada saudável ou inteligente, que
+                  adora beber cerveja. Marge é a esposa e mãe de família
+                  dedicada. Bart é o filho de 10 anos, que não leva a escola
+                  a sério e tem orgulho disso. Lisa é a garota de 8 anos, um
+                  gênio não apreciado. E Maggie é o bebê que não larga a
+                  chupeta.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver
+                  Detalhes</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card border-orange rounded">
+              <img src="img/series/2734/backdrop.jpg" class="card-img-top
+                  rounded-top" alt="Lei & Ordem: Unidade de Vítimas Especiais" />
+              <div class="card-body">
+                <h5 class="card-title">Lei &amp; Ordem: Unidade de
+                  Vítimas Especiais</h5>
+                <p class="card-text">
+                  Detetives que fazem parte da Unidade de Vítimas Especiais da
+                  polícia de Nova York investigam crimes de natureza sexual,
+                  como estupros, em que a vítima sobrevive, e auxilia as
+                  autoridades na investigação.
+                </p>
+                <a href="serie.html" class="btn btn-primary">Ver
+                  Detalhes</a>
+              </div>
+            </div>
+          </div>
+      </section>
+      <!-- Fim dos Resultados da Busca -->
+    </div>
+  </main>
+  <!-- Fim do Conteúdo Principal -->
+
+  <!-- Rodapé -->
+  <footer class="bg-light text-center py-3">
+    <p>&copy; 2024 Portal de Séries. Todos os direitos reservados.</p>
+  </footer>
+  <!-- Fim do Rodapé -->
+
+  <!-- Adicionando jQuery e Bootstrap via CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -117,3 +117,11 @@ body {
 .github-link:hover {
   color: #ff7f50; /* Laranja */
 }
+
+/* Estilização da Caixa de Filtros */
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  z-index: 1020;
+}
