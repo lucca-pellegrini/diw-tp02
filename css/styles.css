@@ -1,6 +1,6 @@
 /* Fonte personalizada */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Títulos das seções */
@@ -15,7 +15,7 @@ body {
 }
 
 .section-title::after {
-  content: "";
+  content: '';
   display: block;
   width: 50px;
   height: 4px;
@@ -60,4 +60,60 @@ body {
 
 .card-body {
   text-align: left;
+}
+
+/* Estilização da Seção de Informações do Responsável */
+#responsavel .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#responsavel .card-text {
+  font-size: 1rem;
+}
+
+/* Estilização da Imagem de Perfil */
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ff7f50; /* Laranja */
+  object-fit: cover;
+}
+
+/* Ajuste da Descrição no Layout Responsivo */
+.left-section {
+  min-width: 250px; /* Define um tamanho mínimo para a parte esquerda */
+  flex-shrink: 0; /* Impede que a parte esquerda encolha */
+}
+
+#responsavel .card-body.ml-3 {
+  flex-grow: 1; /* Permite que a parte direita cresça para ocupar o espaço restante */
+}
+
+@media (max-width: 768px) {
+  #responsavel .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-section {
+    min-width: 100%; /* Ajusta o tamanho mínimo para 100% em telas menores */
+  }
+
+  #responsavel .card-body.ml-3 {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+
+/* Estilização do Link do GitHub */
+.github-link {
+  color: #333;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.github-link:hover {
+  color: #ff7f50; /* Laranja */
 }
