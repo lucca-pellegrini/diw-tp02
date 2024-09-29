@@ -183,13 +183,16 @@ body {
   margin: 10px 0;
 }
 
-.serie-rating .fas {
-  color: #ff7f50; /* Laranja */
+/* Estilização das Estrelas de Avaliação */
+.serie-rating .fas,
+.season-rating .fas {
+  color: #ccc; /* Cor das estrelas não preenchidas */
   font-size: 1.5rem;
 }
 
-.serie-rating .fas.filled {
-  color: #ff7f50; /* Laranja */
+.serie-rating .fas.filled,
+.season-rating .fas.filled {
+  color: #ff7f50; /* Cor das estrelas preenchidas (laranja) */
 }
 
 .serie-tagline {
@@ -256,4 +259,89 @@ body {
 .serie-cast .cast-card .card-text small {
   font-size: 0.9rem;
   color: #666;
+}
+
+/* Estilização da Seção de Temporadas e Episódios */
+.season-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 40px 0;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.season-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente escuro */
+  backdrop-filter: blur(5px); /* Efeito de desfoque */
+}
+
+.season-header .content {
+  position: relative;
+  z-index: 1;
+}
+
+.season-poster {
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+  border: 2px solid #ff7f50; /* Laranja */
+  object-fit: cover;
+}
+
+.season-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.season-title span {
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.season-rating .fas {
+  color: #ff7f50; /* Laranja */
+  font-size: 1.5rem;
+}
+
+.season-synopsis {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+.episodes-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.episode-card {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente escuro */
+  color: #fff; /* Texto branco */
+  min-width: 150px;
+  margin-right: 10px;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+.episode-card .card-body {
+  text-align: center;
+  padding: 10px;
+}
+
+.episode-card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.episode-card .card-text {
+  font-size: 1rem;
 }
