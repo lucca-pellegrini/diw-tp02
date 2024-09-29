@@ -306,7 +306,7 @@ body {
 }
 
 .season-rating .fas {
-  color: #ff7f50; /* Laranja */
+  color: #ccc; /* Cor das estrelas não preenchidas */
   font-size: 1.5rem;
 }
 
