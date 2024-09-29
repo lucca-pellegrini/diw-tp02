@@ -127,3 +127,94 @@ body {
   max-height: 80vh;
   overflow-y: auto;
 }
+
+/* Estilização da Seção de Informações Gerais da Série */
+.serie-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 60px 0;
+  text-align: left;
+}
+
+/* Estilização da Seção de Informações Gerais da Série */
+.serie-header .section-title {
+  color: inherit;
+}
+
+.serie-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente escuro */
+  backdrop-filter: blur(5px); /* Efeito de desfoque */
+}
+
+.serie-header .content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.serie-poster {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #ff7f50; /* Laranja */
+  margin-right: 20px;
+}
+
+.serie-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.serie-title span {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.serie-genres {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.serie-rating .fas {
+  color: #ff7f50; /* Laranja */
+  font-size: 1.5rem;
+}
+
+.serie-rating .fas.filled {
+  color: #ff7f50; /* Laranja */
+}
+
+.serie-tagline {
+  font-style: italic;
+  margin: 20px 0;
+}
+
+.serie-synopsis {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+.serie-director {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .serie-header .content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .serie-poster {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
