@@ -124,4 +124,6 @@ body {
   position: sticky;
   top: 20px;
   z-index: 1020;
+  max-height: 80vh;
+  overflow-y: auto;
 }
