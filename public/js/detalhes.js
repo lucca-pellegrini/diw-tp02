@@ -21,6 +21,24 @@ async function fetchSeriesDetails(seriesId) {
   }
 }
 
+// Função para buscar elenco da série
+async function fetchSeriesCast(seriesId) {
+  const url = `${BASE_URL}/tv/${seriesId}/aggregate_credits?language=pt-BR`;
+  const options = {
+    method: 'GET',
+    headers: HEADERS
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data.cast;
+  } catch (error) {
+    console.error('Erro ao buscar elenco da série:', error);
+    return [];
+  }
+}
+
 // Função para renderizar os detalhes da série
 function renderSeriesDetails(series) {
   const headerSection = document.getElementById('serie-header');
@@ -49,9 +67,31 @@ function renderSeriesDetails(series) {
     const isFavorite = favoriteSeries.some(fav => fav.id === series.id);
     favoriteButton.textContent = isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos';
     favoriteButton.className = isFavorite ? 'btn btn-sm btn-danger ml-3' : 'btn btn-sm btn-orange ml-3';
-    favoriteButton.onclick = isFavorite
+    favoriteButton.onclick = isFavorite 
       ? () => removeFavoriteSeries(series.id).then(() => renderSeriesDetails(series))
       : () => addFavoriteSeries(series).then(() => renderSeriesDetails(series));
+  });
+}
+
+// Função para renderizar o elenco da série
+function renderSeriesCast(cast) {
+  const castContainer = document.getElementById('cast-container');
+  castContainer.innerHTML = ''; // Limpar o contêiner antes de renderizar
+
+  cast.forEach(member => {
+    const card = document.createElement('div');
+    card.classList.add('card', 'cast-card', 'mr-3');
+    card.innerHTML = `
+      <img src="${IMG_BASE_URL}${member.profile_path}" alt="${member.name}" class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">${member.name}</h5>
+        <p class="card-text">${member.roles.map(role => role.character).join(', ')}</p>
+        <p class="card-text">
+          <small class="text-muted">${member.total_episode_count} episódios</small>
+        </p>
+      </div>
+    `;
+    castContainer.appendChild(card);
   });
 }
 
@@ -72,6 +112,9 @@ async function init() {
   const seriesDetails = await fetchSeriesDetails(seriesId);
   if (seriesDetails) {
     renderSeriesDetails(seriesDetails);
+
+    const seriesCast = await fetchSeriesCast(seriesId);
+    renderSeriesCast(seriesCast);
   }
 }
 
