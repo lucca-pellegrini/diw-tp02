@@ -7,3 +7,6 @@ testar, execute, na raiz:
 npm install
 npm start
 ```
+
+Feito isso, abra o navegador no seguinte link:
+[localhost:3001](http://localhost:3001).
