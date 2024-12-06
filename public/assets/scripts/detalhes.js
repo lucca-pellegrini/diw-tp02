@@ -85,7 +85,7 @@ function renderSeriesDetails(series) {
     const isFavorite = favoriteSeries.some(fav => fav.id === series.id);
     favoriteButton.textContent = isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos';
     favoriteButton.className = isFavorite ? 'btn btn-sm btn-danger ml-3' : 'btn btn-sm btn-orange ml-3';
-    favoriteButton.onclick = isFavorite 
+    favoriteButton.onclick = isFavorite
       ? () => removeFavoriteSeries(series.id).then(() => renderSeriesDetails(series))
       : () => addFavoriteSeries(series).then(() => renderSeriesDetails(series));
   });
