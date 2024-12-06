@@ -359,3 +359,11 @@ body {
 .btn-orange:hover {
   background-color: #e67342; /* Laranja escuro */
 }
+
+.btn-warning i.fa-plus:hover {
+  color: #fff;
+}
+
+.btn-danger i.fa-trash:hover {
+  color: #e64242;
+}

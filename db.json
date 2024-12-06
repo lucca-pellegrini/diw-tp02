@@ -1,3 +1,16 @@
 {
-  "favorites": []
+  "favorites": [
+    {
+      "id": 1398,
+      "name": "Família Soprano",
+      "overview": "Chefe da máfia e pai de família, Tony Soprano começa a ter ataques de pânico e decide procurar a ajuda de uma profissional, Dra. Jennifer Melfi...",
+      "backdrop_path": "/img/series/1398/backdrop.jpg"
+    },
+    {
+      "id": 1396,
+      "name": "Breaking Bad: A Química do Mal",
+      "overview": "Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.",
+      "backdrop_path": "/img/series/1396/backdrop.jpg"
+    }
+  ]
 }

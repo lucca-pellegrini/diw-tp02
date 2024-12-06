@@ -1,4 +1,5 @@
 import CONFIG from './config.js';
+import { fetchFavoriteSeries } from './favorites.js';
 
 const { BASE_URL, IMG_BASE_URL, HEADERS } = CONFIG;
 
@@ -69,11 +70,12 @@ function renderCarousel(series) {
 }
 
 // Função para renderizar os cards de novas séries
-function renderNewSeries(series) {
+function renderNewSeries(series, favoriteSeries) {
   const newSeriesContainer = document.getElementById('new-series');
   const limitedSeries = series.slice(0, 12); // Limitar a 12 séries
 
   limitedSeries.forEach(serie => {
+    const isFavorite = favoriteSeries.some(fav => fav.id === serie.id);
     const card = document.createElement('div');
     card.classList.add('col-md-4', 'mb-4');
     card.innerHTML = `
@@ -83,6 +85,15 @@ function renderNewSeries(series) {
           <h5 class="card-title">${serie.name}</h5>
           <p class="card-text">${serie.overview}</p>
           <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+          ${isFavorite ? `
+            <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
+              <i class="fa fa-trash"></i>
+            </button>
+          ` : `
+            <button class="btn btn-warning float-right" onclick='addFavoriteSeries(${JSON.stringify(serie).replace(/'/g, "&apos;")})'>
+              <i class="fa fa-plus"></i>
+            </button>
+          `}
         </div>
       </div>
     `;
@@ -90,13 +101,63 @@ function renderNewSeries(series) {
   });
 }
 
+// Função para renderizar os cards de séries favoritas
+function renderFavoriteSeries(series) {
+  const favoriteSeriesContainer = document.getElementById('favorite-series');
+  favoriteSeriesContainer.innerHTML = ''; // Limpar o contêiner antes de renderizar
+
+  if (series.length === 0) {
+    favoriteSeriesContainer.innerHTML = '<p class="text-muted text-center w-100">Sua lista de favoritos está vazia. Adicione uma série aos favoritos para exibi-la aqui.</p>';
+    return;
+  }
+
+  series.forEach(serie => {
+    const card = document.createElement('div');
+    card.classList.add('col-md-4', 'mb-4');
+    card.innerHTML = `
+      <div class="card border-orange rounded">
+        <img src="${serie.backdrop_path}" class="card-img-top rounded-top" alt="${serie.name}" />
+        <div class="card-body">
+          <h5 class="card-title">${serie.name}</h5>
+          <p class="card-text">${serie.overview}</p>
+          <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+          <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    `;
+    favoriteSeriesContainer.appendChild(card);
+  });
+}
+
+// Função para atualizar os botões de adicionar/remover favoritos nas novas séries
+function updateNewSeriesButtons(favoriteSeries) {
+  const newSeriesContainer = document.getElementById('new-series');
+  const buttons = newSeriesContainer.querySelectorAll('.btn-warning, .btn-danger');
+
+  buttons.forEach(button => {
+    const serieId = button.getAttribute('onclick').match(/\d+/)[0];
+    const isFavorite = favoriteSeries.some(fav => fav.id == serieId);
+    button.className = isFavorite ? 'btn btn-danger float-right' : 'btn btn-warning float-right';
+    button.innerHTML = isFavorite ? '<i class="fa fa-trash"></i>' : '<i class="fa fa-plus"></i>';
+    button.setAttribute('onclick', isFavorite ? `removeFavoriteSeries(${serieId})` : `addFavoriteSeries(${JSON.stringify(favoriteSeries.find(fav => fav.id == serieId))})`);
+  });
+}
+
+// Tornar as funções globais
+window.renderFavoriteSeries = renderFavoriteSeries;
+window.updateNewSeriesButtons = updateNewSeriesButtons;
+
 // Inicialização
 async function init() {
   const popularSeries = await fetchPopularSeries();
   renderCarousel(popularSeries);
 
   const newSeries = await fetchNewSeries();
-  renderNewSeries(newSeries);
+  const favoriteSeries = await fetchFavoriteSeries();
+  renderNewSeries(newSeries, favoriteSeries);
+  renderFavoriteSeries(favoriteSeries);
 }
 
 document.addEventListener('DOMContentLoaded', init);
