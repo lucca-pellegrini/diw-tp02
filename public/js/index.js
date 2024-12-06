@@ -97,16 +97,18 @@ function renderNewSeries(series, favoriteSeries) {
         <div class="card-body">
           <h5 class="card-title">${serie.name}</h5>
           <p class="card-text">${serie.overview}</p>
-          <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
-          ${isFavorite ? `
-            <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
-              <i class="fa fa-trash"></i>
-            </button>
-          ` : `
-            <button class="btn btn-warning float-right" onclick='addFavoriteSeries(${JSON.stringify(serie).replace(/'/g, "&apos;")})'>
-              <i class="fa fa-plus"></i>
-            </button>
-          `}
+          <div class="card-footer">
+            <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+            ${isFavorite ? `
+              <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
+                <i class="fa fa-trash"></i>
+              </button>
+            ` : `
+              <button class="btn btn-warning float-right" onclick='addFavoriteSeries(${JSON.stringify(serie).replace(/'/g, "&apos;")})'>
+                <i class="fa fa-plus"></i>
+              </button>
+            `}
+          </div>
         </div>
       </div>
     `;
@@ -190,8 +192,8 @@ window.renderFavoriteSeries = renderFavoriteSeries;
 window.updateNewSeriesButtons = updateNewSeriesButtons;
 
 // Função para buscar informações do autor
-async function fetchAuthorInfo() {
-  const url = 'http://localhost:3001/author';
+async function fetchAuthorInfo(authorId = 0) {
+  const url = `http://localhost:3001/authors/${authorId}`;
   try {
     const response = await fetch(url);
     const data = await response.json();

@@ -37,13 +37,16 @@
       "backdrop_path": "https://image.tmdb.org/t/p/w1280/r9KaBE7i4ovg8uSppQrCp6ZdPD9.jpg"
     }
   ],
-  "author": {
-    "name": "Lucca M. A. Pellegrini",
-    "course": "Engenharia de Computação",
-    "code": "632054",
-    "class": "2",
-    "about": "Sou estudante de Engenharia de Computação, interessado principalmente em hardware, compiladores, inteligência artificial, segurança de informação, e sistemas embarcados.",
-    "profile_image": "/img/lucca-pellegrini.jpg",
-    "github_link": "https://github.com/lucca-pellegrini"
-  }
+  "authors": [
+    {
+      "id": 0,
+      "name": "Lucca M. A. Pellegrini",
+      "course": "Engenharia de Computação",
+      "code": "632054",
+      "class": "2",
+      "about": "Sou estudante de Engenharia de Computação, interessado principalmente em hardware, compiladores, inteligência artificial, segurança de informação, e sistemas embarcados.",
+      "profile_image": "/img/lucca-pellegrini.jpg",
+      "github_link": "https://github.com/lucca-pellegrini"
+    }
+  ]
 }
