@@ -35,6 +35,24 @@
       "name": "Ruptura",
       "overview": "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre a vida no trabalho e a vida pessoal. Quando um colega de trabalho misterioso aparece fora do escritório, ele começa uma jornada para descobrir a verdade sobre seu trabalho.",
       "backdrop_path": "https://image.tmdb.org/t/p/w1280/r9KaBE7i4ovg8uSppQrCp6ZdPD9.jpg"
+    },
+    {
+      "id": 60622,
+      "name": "Fargo",
+      "overview": "Billy Bob Thornton será Lorne Malvo, um homem sem raízes e manipulador, que conhece e muda para sempre a vida de um vendedor de seguros de uma pequena cidade, Lester Nygaard, interpretado por Martin Freeman. Colin Hanks será o policial Gus Grimly, pai solteiro que deve escolher entre sua segurança pessoal e seu dever como agente da lei, ao ficar cara a cara com um assassino. Allison Tolman será Molly Solverson, uma ambiciosa policial.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/grR9khLE8TibHjTYZq1jCSSupYk.jpg"
+    },
+    {
+      "id": 76331,
+      "name": "Succession",
+      "overview": "Acompanhe a história da família Roy, composta por Logan e seus quatro filhos, que controla um dos maiores conglomerados de meios de comunicação e entretenimento do mundo.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/brC6qt6QLcWhVl1wsDp1dX9Lim.jpg"
+    },
+    {
+      "id": 4507,
+      "name": "The Thick of It",
+      "overview": "Criada por Armando Iannucci, The Thick of It é uma sátira política britânica. A história apresenta o dia-a-dia dos funcionários de um departamento do governo.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/7v4s25oKOkrMxlc1OHobnrFA8u4.jpg"
     }
   ],
   "authors": [
