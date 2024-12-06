@@ -49,6 +49,14 @@ export async function addFavoriteSeries(series) {
       const newSeries = await fetchNewSeries(); // Atualizar a lista de novas séries
       window.updateNewSeriesButtons(newSeries, updatedFavoriteSeries);
     }
+    const searchResultsContainer = document.getElementById('search-results');
+    if (searchResultsContainer) {
+      const query = document.getElementById('search-input').value.trim();
+      if (query) {
+        const searchResults = await searchSeries(query);
+        renderSearchResults(searchResults, updatedFavoriteSeries);
+      }
+    }
   } catch (error) {
     console.error('Erro ao adicionar série aos favoritos:', error);
   }
@@ -69,6 +77,14 @@ export async function removeFavoriteSeries(id) {
     if (newSeriesContainer) {
       const newSeries = await fetchNewSeries(); // Atualizar a lista de novas séries
       window.updateNewSeriesButtons(newSeries, updatedFavoriteSeries);
+    }
+    const searchResultsContainer = document.getElementById('search-results');
+    if (searchResultsContainer) {
+      const query = document.getElementById('search-input').value.trim();
+      if (query) {
+        const searchResults = await searchSeries(query);
+        renderSearchResults(searchResults, updatedFavoriteSeries);
+      }
     }
   } catch (error) {
     console.error('Erro ao remover série favorita:', error);

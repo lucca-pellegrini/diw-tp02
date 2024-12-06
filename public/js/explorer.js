@@ -4,7 +4,7 @@ import { fetchFavoriteSeries, addFavoriteSeries, removeFavoriteSeries } from './
 const { BASE_URL, IMG_BASE_URL, HEADERS } = CONFIG;
 
 // Função para buscar séries por nome
-async function searchSeries(query) {
+export async function searchSeries(query) {
   const url = `${BASE_URL}/search/tv?query=${query}&include_adult=false&language=pt-BR&page=1`;
   const options = {
     method: 'GET',
@@ -22,7 +22,7 @@ async function searchSeries(query) {
 }
 
 // Função para renderizar os resultados da busca
-function renderSearchResults(series, favoriteSeries) {
+export function renderSearchResults(series, favoriteSeries) {
   const searchResultsContainer = document.getElementById('search-results');
   searchResultsContainer.innerHTML = ''; // Limpar o contêiner antes de renderizar
 
@@ -85,3 +85,7 @@ async function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Tornar as funções globais para serem usadas em favorites.js
+window.searchSeries = searchSeries;
+window.renderSearchResults = renderSearchResults;
