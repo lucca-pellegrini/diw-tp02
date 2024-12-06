@@ -132,20 +132,39 @@ function renderFavoriteSeries(series) {
 }
 
 // Função para atualizar os botões de adicionar/remover favoritos nas novas séries
-function updateNewSeriesButtons(favoriteSeries) {
+function updateNewSeriesButtons(series, favoriteSeries) {
   const newSeriesContainer = document.getElementById('new-series');
-  const buttons = newSeriesContainer.querySelectorAll('.btn-warning, .btn-danger');
+  newSeriesContainer.innerHTML = ''; // Limpar o contêiner antes de renderizar
 
-  buttons.forEach(button => {
-    const serieId = button.getAttribute('onclick').match(/\d+/)[0];
-    const isFavorite = favoriteSeries.some(fav => fav.id == serieId);
-    button.className = isFavorite ? 'btn btn-danger float-right' : 'btn btn-warning float-right';
-    button.innerHTML = isFavorite ? '<i class="fa fa-trash"></i>' : '<i class="fa fa-plus"></i>';
-    button.setAttribute('onclick', isFavorite ? `removeFavoriteSeries(${serieId})` : `addFavoriteSeries(${JSON.stringify(favoriteSeries.find(fav => fav.id == serieId))})`);
+  series.forEach(serie => {
+    const isFavorite = favoriteSeries.some(fav => fav.id === serie.id);
+    const card = document.createElement('div');
+    card.classList.add('col-md-4', 'mb-4');
+    card.innerHTML = `
+      <div class="card border-orange rounded">
+        <img src="${IMG_BASE_URL}${serie.backdrop_path}" class="card-img-top rounded-top" alt="${serie.name}" />
+        <div class="card-body">
+          <h5 class="card-title">${serie.name}</h5>
+          <p class="card-text">${serie.overview}</p>
+          <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+          ${isFavorite ? `
+            <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
+              <i class="fa fa-trash"></i>
+            </button>
+          ` : `
+            <button class="btn btn-warning float-right" onclick='addFavoriteSeries(${JSON.stringify(serie).replace(/'/g, "&apos;")})'>
+              <i class="fa fa-plus"></i>
+            </button>
+          `}
+        </div>
+      </div>
+    `;
+    newSeriesContainer.appendChild(card);
   });
 }
 
 // Tornar as funções globais
+window.fetchNewSeries = fetchNewSeries;
 window.renderFavoriteSeries = renderFavoriteSeries;
 window.updateNewSeriesButtons = updateNewSeriesButtons;
 

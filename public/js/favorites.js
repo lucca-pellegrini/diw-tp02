@@ -41,7 +41,8 @@ export async function addFavoriteSeries(series) {
     // Atualizar os favoritos após adicionar
     const updatedFavoriteSeries = await fetchFavoriteSeries();
     window.renderFavoriteSeries(updatedFavoriteSeries);
-    window.updateNewSeriesButtons(updatedFavoriteSeries);
+    const newSeries = await fetchNewSeries(); // Atualizar a lista de novas séries
+    window.updateNewSeriesButtons(newSeries, updatedFavoriteSeries);
   } catch (error) {
     console.error('Erro ao adicionar série aos favoritos:', error);
   }
@@ -55,7 +56,8 @@ export async function removeFavoriteSeries(id) {
     // Atualizar os favoritos após remover
     const updatedFavoriteSeries = await fetchFavoriteSeries();
     window.renderFavoriteSeries(updatedFavoriteSeries);
-    window.updateNewSeriesButtons(updatedFavoriteSeries);
+    const newSeries = await fetchNewSeries(); // Atualizar a lista de novas séries
+    window.updateNewSeriesButtons(newSeries, updatedFavoriteSeries);
   } catch (error) {
     console.error('Erro ao remover série favorita:', error);
   }
