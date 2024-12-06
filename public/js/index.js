@@ -147,6 +147,10 @@ function renderFavoriteSeries(series) {
 // Função para atualizar os botões de adicionar/remover favoritos nas novas séries
 function updateNewSeriesButtons(series, favoriteSeries) {
   const newSeriesContainer = document.getElementById('new-series');
+  if (!newSeriesContainer) {
+    return;
+  }
+
   newSeriesContainer.innerHTML = ''; // Limpar o contêiner antes de renderizar
 
   series.forEach(serie => {

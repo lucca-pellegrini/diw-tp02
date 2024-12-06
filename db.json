@@ -3,23 +3,47 @@
     {
       "id": 1398,
       "name": "Família Soprano",
-      "overview": "Chefe da máfia e pai de família, Tony Soprano começa a ter ataques de pânico e decide procurar a ajuda de uma profissional, Dra. Jennifer Melfi...",
-      "backdrop_path": "/img/series/1398/backdrop.jpg"
+      "overview": "Chefe da máfia e pai de família, Tony Soprano começa a ter ataques de pânico e decide procurar a ajuda de uma profissional, Dra. Jennifer Melfi. Ele discute sua intimidade e a vida no crime, revelando o desconforto da mulher, Carmela Soprano, com as suas atividades profissionais. Enquanto tenta proteger os filhos, Meadow e Anthony Junior, o mafioso irá enfrentar uma investigação federal e a possível traição de um membro da família.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/lNpkvX2s8LGB0mjGODMT4o6Up7j.jpg"
     },
     {
       "id": 1396,
       "name": "Breaking Bad: A Química do Mal",
       "overview": "Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.",
-      "backdrop_path": "/img/series/1396/backdrop.jpg"
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/gc8PfyTqzqltKPW3X0cIVUGmagz.jpg"
+    },
+    {
+      "id": 62699,
+      "name": "O Jovem Papa",
+      "overview": "Lenny Belardo (Jude Law) se torna o primeiro pontífice americano a ser escolhido para liderar a Igreja Católica. Jovem e charmoso, a eleição do Papa Pio XIII pode parecer o resultado de uma simples estratégia de mídia, mas as aparências podem enganar no misterioso Vaticano.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/4QNeSFKNEKdeUdSr715ZW7r2w5U.jpg"
+    },
+    {
+      "id": 6357,
+      "name": "Além da Imaginação",
+      "overview": "A clássica série de TV Além da Imaginação (The Twilight Zone), que explora o misterioso, o desconhecido e o inesquecível, levará você para os mais profundos reinos da imaginação. Em suas lendárias histórias, você conferirá o melhor da ficção científica e do terror de todos os tempos, criado e dirigido por Rod Serling.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/uaCH2eE68qwR2qCaBEIxpHyuKR.jpg"
+    },
+    {
+      "id": 1060,
+      "name": "Jeeves and Wooster",
+      "overview": "Jeeves and Wooster is a British comedy-drama series adapted by Clive Exton from P.G. Wodehouse's \"Jeeves\" stories.\n\nIt aired on the ITV network from 1990 to 1993, starring Hugh Laurie as Bertie Wooster, a young gentleman with a \"distinctive blend of airy nonchalance and refined gormlessness\", and Stephen Fry as Jeeves, his improbably well-informed and talented valet. Wooster is a bachelor, a minor aristocrat and member of the idle rich. He and his friends, who are mainly members of The Drones Club, are extricated from all manner of societal misadventures by the indispensable valet, Jeeves. The stories are set in the United Kingdom and the United States in the 1930s.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/xtbG1FlOXlmnSYNvxBdVlcFa8p4.jpg"
+    },
+    {
+      "id": 95396,
+      "name": "Ruptura",
+      "overview": "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre a vida no trabalho e a vida pessoal. Quando um colega de trabalho misterioso aparece fora do escritório, ele começa uma jornada para descobrir a verdade sobre seu trabalho.",
+      "backdrop_path": "https://image.tmdb.org/t/p/w1280/r9KaBE7i4ovg8uSppQrCp6ZdPD9.jpg"
     }
   ],
   "author": {
-     "name": "Lucca M. A. Pellegrini",
-     "course": "Engenharia de Computação",
-     "code": "632054",
-     "class": "2",
-     "about": "Sou estudante de Engenharia de Computação, interessado principalmente em hardware, compiladores, inteligência artificial, segurança de informação, e sistemas embarcados.",
-     "profile_image": "/img/lucca-pellegrini.jpg",
-     "github_link": "https://github.com/lucca-pellegrini"
+    "name": "Lucca M. A. Pellegrini",
+    "course": "Engenharia de Computação",
+    "code": "632054",
+    "class": "2",
+    "about": "Sou estudante de Engenharia de Computação, interessado principalmente em hardware, compiladores, inteligência artificial, segurança de informação, e sistemas embarcados.",
+    "profile_image": "/img/lucca-pellegrini.jpg",
+    "github_link": "https://github.com/lucca-pellegrini"
   }
 }
