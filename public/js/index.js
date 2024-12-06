@@ -3,6 +3,18 @@ import { fetchFavoriteSeries } from './favorites.js';
 
 const { BASE_URL, IMG_BASE_URL, HEADERS } = CONFIG;
 
+// Função para calcular datas
+function getDateRangeForLastMonths(num) {
+  const today = new Date();
+  const maxDate = today.toISOString().split('T')[0]; // Data de hoje
+
+  const twoMonthsAgo = new Date();
+  twoMonthsAgo.setMonth(today.getMonth() - num);
+  const minDate = twoMonthsAgo.toISOString().split('T')[0]; // Data de n meses atrás
+
+  return { maxDate, minDate };
+}
+
 // Função para buscar séries populares
 async function fetchPopularSeries() {
   const url = `${BASE_URL}/trending/tv/week?language=pt-BR`;
@@ -23,7 +35,8 @@ async function fetchPopularSeries() {
 
 // Função para buscar séries com episódios novos
 async function fetchNewSeries() {
-  const url = `${BASE_URL}/tv/airing_today?language=pt-BR&page=1`;
+  const { maxDate, minDate } = getDateRangeForLastMonths(1);
+  const url = `${BASE_URL}/discover/tv?air_date.gte=${minDate}&air_date.lte=${maxDate}&include_adult=false&include_null_first_air_dates=false&language=pt-BR&page=1&sort_by=popularity.desc&vote_count.gte=100&without_genres=10763,10767`;
   const options = {
     method: 'GET',
     headers: HEADERS
