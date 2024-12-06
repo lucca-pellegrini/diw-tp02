@@ -42,7 +42,7 @@ export function renderSearchResults(series, favoriteSeries) {
           <h5 class="card-title">${serie.name}</h5>
           <p class="card-text">${serie.overview}</p>
           <div class="card-footer">
-            <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+            <a href="/detalhes.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
             ${isFavorite ? `
               <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
                 <i class="fa fa-trash"></i>

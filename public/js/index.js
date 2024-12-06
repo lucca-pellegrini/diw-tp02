@@ -70,7 +70,7 @@ function renderCarousel(series) {
     carouselItem.classList.add('carousel-item');
     if (index === 0) carouselItem.classList.add('active');
     carouselItem.innerHTML = `
-      <a href="/serie.html?series_id=${serie.id}">
+      <a href="/detalhes.html?series_id=${serie.id}">
         <img src="${IMG_BASE_URL}${serie.backdrop_path}" class="d-block w-100 rounded" alt="${serie.name}" />
         <div class="carousel-caption d-none d-md-block">
           <h5>${serie.name}</h5>
@@ -98,7 +98,7 @@ function renderNewSeries(series, favoriteSeries) {
           <h5 class="card-title">${serie.name}</h5>
           <p class="card-text">${serie.overview}</p>
           <div class="card-footer">
-            <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+            <a href="/detalhes.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
             ${isFavorite ? `
               <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
                 <i class="fa fa-trash"></i>
@@ -136,7 +136,7 @@ function renderFavoriteSeries(series) {
           <h5 class="card-title">${serie.name}</h5>
           <p class="card-text">${serie.overview}</p>
           <div class="card-footer">
-            <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+            <a href="/detalhes.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
             <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
               <i class="fa fa-trash"></i>
             </button>
@@ -168,7 +168,7 @@ function updateNewSeriesButtons(series, favoriteSeries) {
           <h5 class="card-title">${serie.name}</h5>
           <p class="card-text">${serie.overview}</p>
           <div class="card-footer">
-            <a href="/serie.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+            <a href="/detalhes.html?series_id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
             ${isFavorite ? `
               <button class="btn btn-danger float-right" onclick="removeFavoriteSeries(${serie.id})">
                 <i class="fa fa-trash"></i>
