@@ -12,5 +12,14 @@
       "overview": "Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.",
       "backdrop_path": "/img/series/1396/backdrop.jpg"
     }
-  ]
+  ],
+  "author": {
+     "name": "Lucca M. A. Pellegrini",
+     "course": "Engenharia de Computação",
+     "code": "632054",
+     "class": "2",
+     "about": "Sou estudante de Engenharia de Computação, interessado principalmente em hardware, compiladores, inteligência artificial, segurança de informação, e sistemas embarcados.",
+     "profile_image": "/img/lucca-pellegrini.jpg",
+     "github_link": "https://github.com/lucca-pellegrini"
+  }
 }

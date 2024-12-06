@@ -181,6 +181,56 @@ window.fetchNewSeries = fetchNewSeries;
 window.renderFavoriteSeries = renderFavoriteSeries;
 window.updateNewSeriesButtons = updateNewSeriesButtons;
 
+// Função para buscar informações do autor
+async function fetchAuthorInfo() {
+  const url = 'http://localhost:3001/author';
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro ao buscar informações do autor:', error);
+    return null;
+  }
+}
+
+// Função para renderizar informações do autor
+function renderAuthorInfo(author) {
+  const authorSection = document.getElementById('responsavel');
+  if (!author) {
+    authorSection.innerHTML = '<p class="text-muted text-center w-100">Erro ao carregar informações do autor.</p>';
+    return;
+  }
+
+  authorSection.innerHTML = `
+    <h2 class="section-title">Informações do Aluno</h2>
+    <div class="card border-orange rounded d-flex flex-row align-items-center p-3">
+      <div class="left-section d-flex align-items-center">
+        <img src="${author.profile_image}" alt="Foto do Responsável" width="50" height="50" class="profile-img mr-3" />
+        <div class="card-body">
+          <h5 class="card-title">${author.name}</h5>
+          <p class="card-text">
+            <strong>Curso:</strong> ${author.course}<br />
+            <strong>Código:</strong> ${author.code} <br />
+            <strong>Turma:</strong> ${author.class}
+          </p>
+        </div>
+      </div>
+      <div class="card-body ml-3">
+        <h5 class="card-title">Sobre</h5>
+        <p class="card-text">
+          ${author.about}
+        </p>
+      </div>
+      <div class="card-footer d-flex justify-content-end">
+        <a href="${author.github_link}" target="_blank" class="github-link">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
 // Inicialização
 async function init() {
   const popularSeries = await fetchPopularSeries();
@@ -190,6 +240,9 @@ async function init() {
   const favoriteSeries = await fetchFavoriteSeries();
   renderNewSeries(newSeries, favoriteSeries);
   renderFavoriteSeries(favoriteSeries);
+
+  const authorInfo = await fetchAuthorInfo();
+  renderAuthorInfo(authorInfo);
 }
 
 document.addEventListener('DOMContentLoaded', init);
