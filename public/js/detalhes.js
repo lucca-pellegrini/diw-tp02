@@ -39,6 +39,24 @@ async function fetchSeriesCast(seriesId) {
   }
 }
 
+// Função para buscar detalhes da temporada
+async function fetchSeasonDetails(seriesId, seasonNumber) {
+  const url = `${BASE_URL}/tv/${seriesId}/season/${seasonNumber}?language=pt-BR`;
+  const options = {
+    method: 'GET',
+    headers: HEADERS
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro ao buscar detalhes da temporada:', error);
+    return null;
+  }
+}
+
 // Função para renderizar os detalhes da série
 function renderSeriesDetails(series) {
   const headerSection = document.getElementById('serie-header');
@@ -95,6 +113,55 @@ function renderSeriesCast(cast) {
   });
 }
 
+// Função para renderizar as temporadas e episódios da série
+async function renderSeasons(seriesId, seriesBackdropPath, seasons) {
+  const seasonCarouselInner = document.getElementById('season-carousel-inner');
+  seasonCarouselInner.innerHTML = ''; // Limpar o contêiner antes de renderizar
+
+  for (const [index, season] of seasons.entries()) {
+    if (/* season.season_number <= 0 || */ new Date(season.air_date) > new Date()) {
+      continue;
+    }
+
+    const seasonDetails = await fetchSeasonDetails(seriesId, season.season_number);
+
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    if (index === 0) carouselItem.classList.add('active');
+    carouselItem.innerHTML = `
+      <div class="season-header" style="background-image: url(${IMG_BASE_URL}${seriesBackdropPath});">
+        <div class="container text-light">
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="d-flex align-items-center">
+              <img src="${IMG_BASE_URL}${seasonDetails.poster_path}" alt="Pôster da Temporada ${seasonDetails.season_number}" class="season-poster mr-4" />
+              <div>
+                <h3 class="season-title">Temporada ${seasonDetails.season_number} <span>(${seasonDetails.air_date.split('-')[0]})</span></h3>
+                <div class="season-rating">
+                  ${Array(Math.floor(seasonDetails.vote_average / 2)).fill('<i class="fas fa-star filled"></i>').join('')}
+                  ${seasonDetails.vote_average % 2 >= 0.5 ? '<i class="fas fa-star-half-alt filled"></i>' : ''}
+                </div>
+                <p class="season-synopsis">${seasonDetails.overview}</p>
+              </div>
+            </div>
+            <div class="episodes-container d-flex overflow-auto mt-3">
+              ${seasonDetails.episodes.map(episode => `
+                <div class="episode-card card mr-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Episódio ${episode.episode_number}</h5>
+                    <p class="card-text">${episode.name}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    seasonCarouselInner.appendChild(carouselItem);
+  }
+}
+
 // Função para obter o ID da série da URL
 function getSeriesIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -115,6 +182,8 @@ async function init() {
 
     const seriesCast = await fetchSeriesCast(seriesId);
     renderSeriesCast(seriesCast);
+
+    await renderSeasons(seriesId, seriesDetails.backdrop_path, seriesDetails.seasons);
   }
 }
 
