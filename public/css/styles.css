@@ -367,3 +367,43 @@ body {
 .btn-danger i.fa-trash:hover {
   color: #e64242;
 }
+
+/* Defina uma altura máxima para os cards */
+.card {
+  max-height: 600px; /* Ajuste conforme necessário */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-top {
+  max-height: 200px; /* Ajuste conforme necessário */
+  object-fit: cover;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-text {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem; /* Espaço para os botões */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  background-color: transparent; /* Remove o fundo */
+  border-top: none; /* Remove a borda superior */
+  padding: 0; /* Remove o padding */
+  flex-wrap: nowrap; /* Garante que os itens não quebrem linha */
+}
+
+.card-footer .btn {
+  flex: 0 0 auto; /* Garante que os botões não cresçam para preencher o espaço */
+}
